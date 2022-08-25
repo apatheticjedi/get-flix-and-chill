@@ -42,7 +42,7 @@ header p {
 
 main {
     background-color: var(--secondary-color);
-    background-image: url(/assets/images/2h-media-h9ue_EmlM7s-unsplash.jpg);
+    background-image: url(../images/2h-media-h9ue_EmlM7s-unsplash.jpg);
     height: 100vh;
 }
 
@@ -161,7 +161,16 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 @media screen and (max-width: 575px) {
-    #header-img img{
-        height: 3rem;
+    #header-img img {
+        height: 4rem;
+    }
+
+    header {
+        text-align: center;
+        padding-bottom: 0;
+    }
+
+    header p {
+        margin-bottom: 0;
     }
 }
