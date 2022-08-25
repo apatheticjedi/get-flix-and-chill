@@ -1,16 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.min.css" integrity="sha512-hj9rznBPdFg9A4fACbJcp4ttzdinMDtPrtZ3gBD11DiY3O1xJfn0r1U5so/J0zwfGOzq9teIaH5rFmjFAFw8SA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Get Flix and Chill</title>
+    <title>GetFlix and Chill</title>
 </head>
-<body>
-    
 
-    
+<body>
+    <header>
+        <h1>GetFlix and Chill</h1>
+        <p>Find the perfect movie and pair it with the best cannabis strain.</p>
+    </header>
+
+    <main>
+        <form>
+            <div id="genre" class="selector">
+                <h2>What types of movies do you want to see?</h2>
+
+                <input type="checkbox" name="comedy" id="comedy">
+                <label for="comedy">Comedy </label>
+
+                <input type="checkbox" name="horror" id="horror">
+                <label for="horror">Horror</label>
+
+                <input type="checkbox" name="action" id="action">
+                <label for="action">Action</label>
+
+                <input type="checkbox" name="drama" id="drama">
+                <label for="drama">Drama/Romance</label>
+
+                <input type="checkbox" name="scifi" id="scifi">
+                <label for="scifi">Sci-Fi/Fantasy</label>
+
+                <input type="checkbox" name="independent" id="independent">
+                <label for="independent">Indie</label>
+            </div>
+
+            <div id="rating" class="selector">
+                <h2>What ratings do you want to include?</h2>
+
+                <input type="checkbox" name="g" id="g">
+                <label for="g">G </label>
+
+                <input type="checkbox" name="pg" id="pg">
+                <label for="pg">PG </label>
+
+                <input type="checkbox" name="pg13" id="pg13">
+                <label for="pg13">PG-13 </label>
+
+                <input type="checkbox" name="r" id="r">
+                <label for="r">R </label>
+
+                <input type="checkbox" name="nc17" id="nc17">
+                <label for="nc17">NC-17/Unrated</label>
+            </div>
+
+            <button type="submit">Get My Movie & Strain</button>
+
+        </form>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/js/mdb.min.js" integrity="sha512-XFd1m0eHgU1F05yOmuzEklFHtiacLVbtdBufAyZwFR0zfcq7vc6iJuxerGPyVFOXlPGgM8Uhem9gwzMI8SJ5uw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
