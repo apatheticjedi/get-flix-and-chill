@@ -19,29 +19,32 @@
 </head>
 
 <body>
-    <header>
-        <h1>GetFlix and Chill</h1>
-        <p>Find the perfect movie and pair it with the best cannabis strain.</p>
+    <header class="row justify-content-between">
+        <div class="col-12 col-sm-9">
+            <h1>GetFlix and Chill</h1>
+            <p><strong>Find the perfect movie and pair it with the best cannabis strain.</strong></p>
+        </div>
+
+        <div id="header-img" class="col-12 col-sm-3 d-flex justify-content-center"><img
+                src="./assets/images/7-2-clapperboard-transparent.png" alt="GetFlix and Chill logo"></div>
     </header>
 
     <main>
-        <div class="container row">
+        <div class="container row border border-5">
 
-        <div id="result-movie" class="result col-5">
-            <h2>Movie</h2>
-            <img src="https://picsum.photos/200">
-        </div>
+            <div id="result-movie" class="result col-12 col-md-5">
+                <h2>Movie</h2>
+                <img src="https://picsum.photos/200">
+            </div>
 
-        <div  class="col-2 align-self-center>
-            <h1><i class="fa-solid fa-plus"></i></h1>
-        </div>
+            <div class="col-12 col-md-2 align-self-center">
+                <h1><i class="fa-solid fa-plus"></i></h1>
+            </div>
 
-        <div id="result-strain" class="result col-5">
-            <h2>Strain</h2>
-            <img src="./assets/mjbackground.png"
-                width = "200"
-                height="200">
-        </div>
+            <div id="result-strain" class="result col-12 col-md-5">
+                <h2>Strain</h2>
+                <img src="./assets/images/mjbackground.png" width="200" height="200">
+            </div>
         </div>
     </main>
 
