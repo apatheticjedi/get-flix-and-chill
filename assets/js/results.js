@@ -1,6 +1,11 @@
+let strainEl = document.querySelector("#result-strain")
+let movieEl = document.querySelector("#result-movie")
 let strainNumber = Math.floor(Math.random() * 9);
 let randomStrain = '';
 
+  var displayMovieResults = function (data) { 
+    movieEl.innerHTML += `<img src="https://image.tmdb.org/t/p/original/${data[i].poster_path}.jpg">`;
+  }  
 
 var weedApi = function() {
     const options = {
@@ -16,6 +21,7 @@ var weedApi = function() {
             if(response.ok) {
                 response.json().then(function(data) {
                     randomStrain = data.data[strainNumber].name;
+                    strainEl.textContent = `${data.data[strainNumber].name}`;
                     console.log(data);
                 });
             };
