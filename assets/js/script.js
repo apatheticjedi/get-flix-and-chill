@@ -13,14 +13,16 @@ fetch('https://advanced-movie-search.p.rapidapi.com/discover/movie?with_genres=8
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
 
+let movies = []
 
 buttonClick = () => {
-    $('input[type=checkbox][name=comedy]').change(function() {
-        if ($(this).is(':checked')) {
-            console.log(`${this.value} is checked`);
-        }
-        else {
-            console.log(`${this.value} is unchecked`);
+    $('#genre').change(function(event) {
+        if ($(event.target).is(':checked')) {
+            movies.push($(event.target).attr('id'))
+            console.log(movies)
+        } else {
+            movies = movies.filter(item => item !== $(event.target).attr('id'))
+            console.log(movies)
         }
     });
 };   
