@@ -24,7 +24,7 @@ var weedApi = function() {
                 response.json().then(function(data) {
                     randomStrain = data.data[strainNumber].name;
                     strainEl.textContent = `${data.data[strainNumber].name}`;
-                    //strainEl.style.color = '#EFF1F3'
+                    strainEl.style.color = '#EFF1F3'
                     console.log(data);
                 });
             };
