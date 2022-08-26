@@ -83,10 +83,8 @@ button:active {
 }
 
 .result img {
-    /* text-align: center; */
     width: 200px; 
     height: 200px;  
-    /* position: relative;   */
 }
 
 .strain-name {
@@ -95,6 +93,8 @@ button:active {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+    font-weight: bold;
+    font-size: large;
     z-index: 999;
 }
 
