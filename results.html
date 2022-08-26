@@ -34,21 +34,31 @@
 
             <div id="result-movie" class="result col-12 col-md-5">
                 <h2>Movie</h2>
-                <img src="https://picsum.photos/200">
+                <div class="strain-image">
+                    <img src="https://picsum.photos/200">
+                </div>
+                
             </div>
 
-            <div class="col-12 col-md-2 align-self-center">
+            <div class="d-flex col-12 col-md-2 justify-content-center align-self-center">
                 <h1><i class="fa-solid fa-plus"></i></h1>
             </div>
 
-        <div id="result-strain" class="result">
-            <h2>Strain</h2>
-            <span class="strain-name "></span>
-            <img src="./assets/images/mjbackground.png"
-                width = "200"
-                height="200">
-                
+            <div id="result-strain" class="result col-12 col-md-5">
+                <h2>Strain</h2>
+                <div class="strain-image">
+                    <img src="./assets/images/mjbackground.png">
+                    <span class="strain-name "></span>
+                </div>
+
+            </div>
+            <button type="submit" class="btn-rounded d-flex col-4 justify-content-center mt-2">Add to Favorites</button>
+            <button type="submit" class="btn-rounded d-flex col-4 justify-content-center mt-2">Go Back</button>
         </div>
+        <div class="favorites container row border border-5">
+            <h2>Favorites:</h2>
+        </div>
+
     </main>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"

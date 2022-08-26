@@ -73,6 +73,31 @@ button:active {
     padding-bottom: 10px;
 }
 
+.result h2 {
+    text-align: center;
+}
+
+.strain-image {
+    position: relative;
+    text-align: center;
+}
+
+.result img {
+    /* text-align: center; */
+    width: 200px; 
+    height: 200px;  
+    /* position: relative;   */
+}
+
+.strain-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 999;
+}
+
 input[type="range"] {
     -webkit-appearance: none;
     background-color: var(--secondary-color);
