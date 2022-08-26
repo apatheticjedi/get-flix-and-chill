@@ -6,68 +6,90 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.min.css" integrity="sha512-hj9rznBPdFg9A4fACbJcp4ttzdinMDtPrtZ3gBD11DiY3O1xJfn0r1U5so/J0zwfGOzq9teIaH5rFmjFAFw8SA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css"
+        integrity="sha512-erXaRvkGGUhkRub+PAH0bd+aBmYjHzEmo4ymIf/AirZNasjJOWj88ts3pL+tIUtQcUFTjZAeLV8Q5Grwf6MkZg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
 
     <title>GetFlix and Chill</title>
 </head>
 
 <body>
-    <header>
-        <h1>GetFlix and Chill</h1>
-        <p>Find the perfect movie and pair it with the best cannabis strain.</p>
+    <header class="row justify-content-between">
+        <div class="col-12 col-sm-9">
+            <h1>GetFlix and Chill</h1>
+            <p><strong>Find the perfect movie and pair it with the best cannabis strain.</strong></p>
+        </div>
+
+        <div id="header-img" class="col-12 col-sm-3 d-flex justify-content-center"><img
+                src="./assets/images/7-2-clapperboard-transparent.png" alt="GetFlix and Chill logo"></div>
     </header>
 
     <main>
-        <form>
-            <div id="genre" class="selector">
+        <form class="container border border-5">
+            <div id="genre" class="selector row border-bottom border-5 justify-content-center">
                 <h2>What types of movies do you want to see?</h2>
-
-                <input type="checkbox" name="comedy" id="comedy">
-                <label for="comedy">Comedy </label>
-
-                <input type="checkbox" name="horror" id="horror">
-                <label for="horror">Horror</label>
-
-                <input type="checkbox" name="action" id="action">
-                <label for="action">Action</label>
-
-                <input type="checkbox" name="drama" id="drama">
-                <label for="drama">Drama/Romance</label>
-
-                <input type="checkbox" name="scifi" id="scifi">
-                <label for="scifi">Sci-Fi/Fantasy</label>
-
-                <input type="checkbox" name="independent" id="independent">
-                <label for="independent">Indie</label>
+                <div class="genreId col-5 col-md 4 col-lg-2">
+                    <label for="comedy">Comedy
+                        <input type="checkbox" name="comedy" id="comedy" checked>
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="genreId col-5 col-md 4 col-lg-2">
+                    <label for="horror">Horror
+                        <input type="checkbox" name="horror" id="horror" checked>
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="genreId col-5 col-md 4 col-lg-2">
+                    <label for="action">Action
+                        <input type="checkbox" name="action" id="action" checked>
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="genreId col-5 col-md 4 col-lg-2">
+                    <label for="drama">Drama / Romance
+                        <input type="checkbox" name="drama" id="drama" checked>
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="genreId col-5 col-md 4 col-lg-2">
+                    <label for="scifi">Sci-Fi / Fantasy
+                        <input type="checkbox" name="scifi" id="scifi" checked>
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="genreId col-5 col-md 4 col-lg-2">
+                    <label for="independent">Indie
+                        <input type="checkbox" name="independent" id="independent" checked>
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
             </div>
 
-            <div id="rating" class="selector">
+            <div id="rating" class="selector row border-bottom border-5">
                 <h2>What ratings do you want to include?</h2>
-
-                <input type="checkbox" name="g" id="g">
-                <label for="g">G </label>
-
-                <input type="checkbox" name="pg" id="pg">
-                <label for="pg">PG </label>
-
-                <input type="checkbox" name="pg13" id="pg13">
-                <label for="pg13">PG-13 </label>
-
-                <input type="checkbox" name="r" id="r">
-                <label for="r">R </label>
-
-                <input type="checkbox" name="nc17" id="nc17">
-                <label for="nc17">NC-17/Unrated</label>
+                <div class="slidecontainer d-flex justify-content-center">
+                    <h3>1</h3>
+                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+                    <h3>10</h3>
+                </div>
             </div>
 
-            <button type="submit">Get My Movie & Strain</button>
+            <button type="submit" class="btn-rounded d-flex justify-content-center">Get My Movie & Strain</button>
 
         </form>
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/js/mdb.min.js" integrity="sha512-XFd1m0eHgU1F05yOmuzEklFHtiacLVbtdBufAyZwFR0zfcq7vc6iJuxerGPyVFOXlPGgM8Uhem9gwzMI8SJ5uw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"
+        integrity="sha512-JLkwaZ4wv4rmL3O3OoWF1ODQonz8mJgOwA3MxH6nLZTNgHbelnzk1xnsY74Ri+WWW1ZNaqHfg0KBQyMmi5vtbg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 
