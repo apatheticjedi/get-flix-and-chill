@@ -33,21 +33,34 @@ var weedApi = function() {
 
 weedApi();
 
-let addFavorite = function() {
-    favorites.push([randomStrain + ' and ']) //add movie here
+var addFavorite = function() {
+    favorites = favorites || [];
+    favorites.push([randomStrain + ' and '])
     localStorage.setItem('favorites', JSON.stringify(favorites));
+    console.log('button');
 };
 
-let loadFavorites = function() {
+var loadFavorites = function() {
     favorites = JSON.parse(localStorage.getItem('favorites'));
-    if (cities) {
+    if (favorites) {
+        let favH2 = document.querySelector('#favoritesH2');
+        favH2.textContent = 'Favorites:'
         for (let i = 0; i < favorites.length; i++) {
-            let favEl = $('#PLACEHOLDER')
-            let favAdd = document.createElement('h2')
+            let favEl = document.querySelector('#favorites');
+            let favAdd = document.createElement('h3');
             favAdd.textContent = favorites[i];
-            favEl.appendchild(favAdd);
+            favEl.appendChild(favAdd);
         }
     } else {
-        //display no favorites saved
-    }
+        let favH2 = document.querySelector('#favoritesH2');
+        favH2.textContent = 'No Favorites Yet!';
+    };
+    console.log('hey')
 };
+
+$('#favBtn').click(function (e) { 
+    e.preventDefault();
+    addFavorite();
+});
+
+loadFavorites();
