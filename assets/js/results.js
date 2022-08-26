@@ -1,4 +1,4 @@
-let strainEl = document.querySelector("#result-strain")
+let strainEl = document.querySelector(".strain-name")
 let movieEl = document.querySelector("#result-movie")
 let strainNumber = Math.floor(Math.random() * 9);
 let randomStrain = '';
@@ -22,6 +22,7 @@ var weedApi = function() {
                 response.json().then(function(data) {
                     randomStrain = data.data[strainNumber].name;
                     strainEl.textContent = `${data.data[strainNumber].name}`;
+                    //strainEl.style.color = '#EFF1F3'
                     console.log(data);
                 });
             };
