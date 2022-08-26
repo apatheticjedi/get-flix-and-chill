@@ -50,6 +50,17 @@ if (movies[0] === 'comedy') {
 };
 }
 
+const slider = document.getElementById("myRange");
+const output = document.getElementById("rating-choice");
+
+sliderInput = () => {
+slider.oninput = function() {
+    let output = this.value;
+    console.log(output);
+}
+}
+
+
 buttonClick();
 
 
