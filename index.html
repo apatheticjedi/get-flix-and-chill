@@ -32,9 +32,22 @@
     <main>
         <form class="container border border-5">
             <div id="genre" class="selector row border-bottom border-5 justify-content-center">
-                <h2>What types of movies do you want to see?</h2>
+                <h2>What type of movie do you want to see?</h2>
+                <div class="custom-select">
+                    <label for="genre-select"><h5>Choose a genre:</h5></label>
+    
+                    <select name="genre-select" id="genre-select">
+                        <option value="">--Please choose an option--</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="horror">Horror</option>
+                        <option value="action">Action</option>
+                        <option value="drama">Drama / Romance</option>
+                        <option value="scifi">Sci-Fi / Fantasy</option>
+                        <option value="documentary">Documentary</option>
+                    </select>
+                </div>
 
-                <div class="genreId col-5 col-md 4 col-lg-2">
+                <!-- <div class="genreId col-5 col-md 4 col-lg-2">
                     <label for="comedy">Comedy
                         <input type="checkbox" name="comedy" id="comedy">
                         <span class="checkmark"></span>
@@ -69,7 +82,7 @@
                         <input type="checkbox" name="documentary" id="documentary">
                         <span class="checkmark"></span>
                     </label>
-                </div>
+                </div> -->
             </div>
 
             <div id="rating" class="selector row border-bottom border-5">
