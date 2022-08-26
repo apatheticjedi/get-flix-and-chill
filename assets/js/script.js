@@ -52,6 +52,19 @@ if (movies[0] === 'comedy') {
 
 buttonClick();
 
+//Modal functions
+$(document).ready(function(){
+    $("#exampleModal").modal('show');
+});
+
+$('#yesBtn').click(function(){
+    $('#exampleModal').modal('hide');
+});
+
+
+
+
+
 
 
 
