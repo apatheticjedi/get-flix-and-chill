@@ -1,7 +1,9 @@
-let strainEl = document.querySelector("#result-strain")
+let strainEl = document.querySelector(".strain-name")
 let movieEl = document.querySelector("#result-movie")
 let strainNumber = Math.floor(Math.random() * 9);
 let randomStrain = '';
+let favorites = [];
+
 
   var displayMovieResults = function (data) { 
     movieEl.innerHTML += `<img src="https://image.tmdb.org/t/p/original/${data[i].poster_path}.jpg">`;
@@ -22,6 +24,7 @@ var weedApi = function() {
                 response.json().then(function(data) {
                     randomStrain = data.data[strainNumber].name;
                     strainEl.textContent = `${data.data[strainNumber].name}`;
+                    strainEl.style.color = '#EFF1F3'
                     console.log(data);
                 });
             };
@@ -29,3 +32,35 @@ var weedApi = function() {
 };
 
 weedApi();
+
+var addFavorite = function() {
+    favorites = favorites || [];
+    favorites.push([randomStrain + ' and '])
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    console.log('button');
+};
+
+var loadFavorites = function() {
+    favorites = JSON.parse(localStorage.getItem('favorites'));
+    if (favorites) {
+        let favH2 = document.querySelector('#favoritesH2');
+        favH2.textContent = 'Favorites:'
+        for (let i = 0; i < favorites.length; i++) {
+            let favEl = document.querySelector('#favorites');
+            let favAdd = document.createElement('h3');
+            favAdd.textContent = favorites[i];
+            favEl.appendChild(favAdd);
+        }
+    } else {
+        let favH2 = document.querySelector('#favoritesH2');
+        favH2.textContent = 'No Favorites Yet!';
+    };
+    console.log('hey')
+};
+
+$('#favBtn').click(function (e) { 
+    e.preventDefault();
+    addFavorite();
+});
+
+loadFavorites();
