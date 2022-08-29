@@ -135,4 +135,15 @@ function closeAllSelect(elmnt) {
 // if the user clicks anywhere outside the select box, then close all select boxes:
 document.addEventListener("click", closeAllSelect);
 
+
+//Modal functions
+$(document).ready(function(){
+    $("#exampleModal").modal('show');
+});
+
+$('#yesBtn').click(function(){
+    $('#exampleModal').modal('hide');
+});
+
+
 buttonClick();
