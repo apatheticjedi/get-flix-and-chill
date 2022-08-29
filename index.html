@@ -34,8 +34,10 @@
             <div id="genre" class="selector row border-bottom border-5 justify-content-center">
                 <h2>What type of movie do you want to see?</h2>
                 <div class="custom-select">
-                    <label for="genre-select"><h5>Choose a genre:</h5></label>
-    
+                    <label for="genre-select">
+                        <h5>Choose a genre:</h5>
+                    </label>
+
                     <select name="genre-select" id="genre-select">
                         <option value="">--Please choose an option--</option>
                         <option value="comedy">Comedy</option>
@@ -99,21 +101,21 @@
 
         </form>
 
-
-
-<!-- Modal -->
-<div
-class="modal fade"
-id="exampleModal"
-tabindex="-1"
-aria-labelledby="exampleModalLabel"
->
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-        <h2>Please confirm that you are 21 years of age or older.</h2>
-        <button id="yesBtn" type="button" data-dismiss="modal" aria-label="close">Yes</button>
-    </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content row">
+                    <div class="modal-header col-12">
+                        <h3>Please confirm that you are 21 years of age or older.</h3>
+                    </div>  
+                    <div class="col-12 d-flex justify-content-between">
+                        <button id="yesBtn" class="btn-rounded b col-5" type="button" data-dismiss="modal" aria-label="close">Yes</button>
+                        <button id="noBtn" class="btn-rounded btn-outline col-5" type="button">No</button>
+                    </div>                      
+                </div>
+            </div>
+        </div>
+        
     </main>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"

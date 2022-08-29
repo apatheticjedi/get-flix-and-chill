@@ -56,8 +56,8 @@ button {
     background-color: var(--primary-color);
     color: var(--tertiary-color);
     font-weight: bold;
-    text-shadow: 2px 1px #56666b;
-    box-shadow: 5px 5px var(--quaternary-color);
+    text-shadow: 2px 1px var(--quaternary-color);
+    box-shadow: 4px 4px var(--quaternary-color);
     font-size: large;
     margin: 10px auto;
     padding: 10px;
@@ -65,13 +65,13 @@ button {
 
 button:active {
     box-shadow: none;
-    transform: translate(4px, 2px);
+    transform: translate(4px, 4px);
 }
 
 .container {
     margin: auto;
     background-color: var(--secondary-color);
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 .result h2 {
@@ -84,8 +84,9 @@ button:active {
 }
 
 .result img {
-    width: 200px; 
-    height: 200px;  
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
 }
 
 .strain-name {
@@ -93,14 +94,50 @@ button:active {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
-    font-weight: bold;
-    font-size: large;
+    color: var(--secondary-color);
+    font-family: 'Limelight', cursive;
+    font-size: 1.5rem;
     z-index: 999;
 }
 
 i {
     padding: 30px 0 10px;
+}
+
+.favorites p {
+    font-family: 'Limelight', cursive;
+    background-color: var(--quinary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+
+.favorites p:hover {
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    text-shadow: 2px 1px var(--quaternary-color);
+}
+
+.modal-content {
+    background-color: var(--secondary-color);
+    border: 2px solid var(--quaternary-color);
+}
+
+.modal-header {
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    text-shadow: 2px 1px var(--quaternary-color);
+}
+
+#noBtn {
+    background-color: var(--quinary-color);
+    color: var(--quaternary-color);
+    text-shadow: none;
+}
+
+#clear {
+    display: none;
+    padding-top: 10px;
 }
 
 /* custom slider */
@@ -145,7 +182,7 @@ input[type="range"]::-webkit-slider-thumb {
     background-color: var(--primary-color);
     color: var(--tertiary-color);
     font-size: larger;
-    text-shadow: 1px 1px var(--quaternary-color);
+    text-shadow: 2px 1px var(--quaternary-color);
     font-weight: bold;
 }
 
@@ -158,22 +195,23 @@ input[type="range"]::-webkit-slider-thumb {
     height: 0;
     border: 10px solid transparent;
     border-color: var(--tertiary-color) transparent transparent transparent;
-  }
+}
 
-  .select-selected.select-arrow-active:after {
+.select-selected.select-arrow-active:after {
     border-color: transparent transparent var(--tertiary-color) transparent;
     top: auto;
-  }
+}
 
-  .select-items div,.select-selected {
+.select-items div,
+.select-selected {
     padding: 8px 16px;
     border: 1px solid transparent;
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
     cursor: pointer;
     user-select: none;
-  }
+}
 
-  .select-items {
+.select-items {
     position: absolute;
     background-color: var(--quinary-color);
     color: var(--quaternary-color);
@@ -183,17 +221,18 @@ input[type="range"]::-webkit-slider-thumb {
     left: 0;
     right: 0;
     z-index: 99;
-  }
+}
 
-  .select-hide {
+.select-hide {
     display: none;
-  }
+}
 
-  .select-items div:hover, .same-as-selected {
+.select-items div:hover,
+.same-as-selected {
     background-color: var(--primary-color);
     color: var(--tertiary-color);
-    text-shadow: 1px 1px var(--quaternary-color);
-  }
+    text-shadow: 2px 1px var(--quaternary-color);
+}
 
 /* custom checkboxes
 .genreId {

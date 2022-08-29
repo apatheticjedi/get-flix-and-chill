@@ -24,7 +24,7 @@ var weedApi = function() {
                 response.json().then(function(data) {
                     randomStrain = data.data[strainNumber].name;
                     strainEl.textContent = `${data.data[strainNumber].name}`;
-                    strainEl.style.color = '#EFF1F3'
+                    // strainEl.style.color = '#EFF1F3'
                     console.log(data);
                 });
             };
@@ -47,9 +47,10 @@ var loadFavorites = function() {
         favH2.textContent = 'Favorites:'
         for (let i = 0; i < favorites.length; i++) {
             let favEl = document.querySelector('#favorites');
-            let favAdd = document.createElement('h3');
+            let favAdd = document.createElement('p');
             favAdd.textContent = favorites[i];
             favEl.appendChild(favAdd);
+            $('#clear').css('display', 'block')
         }
     } else {
         let favH2 = document.querySelector('#favoritesH2');
@@ -58,9 +59,17 @@ var loadFavorites = function() {
     console.log('hey')
 };
 
+$('#goBack').click(function () {
+    window.open('index.html', '_self')
+});
+
 $('#favBtn').click(function (e) { 
     e.preventDefault();
     addFavorite();
+});
+
+$('#clearFav').click(function() {
+    localStorage.clear();
 });
 
 loadFavorites();
