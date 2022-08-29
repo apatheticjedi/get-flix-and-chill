@@ -9,6 +9,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 h1,
@@ -98,6 +99,11 @@ button:active {
     z-index: 999;
 }
 
+i {
+    padding: 30px 0 10px;
+}
+
+/* custom slider */
 input[type="range"] {
     -webkit-appearance: none;
     background-color: var(--secondary-color);
@@ -125,6 +131,71 @@ input[type="range"]::-webkit-slider-thumb {
     border: 5px solid var(--quaternary-color);
 }
 
+/* custom drop-down menu */
+.custom-select {
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+}
+
+.custom-select select {
+    display: none;
+}
+
+.select-selected {
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    font-size: larger;
+    text-shadow: 1px 1px var(--quaternary-color);
+    font-weight: bold;
+}
+
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 50px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-color: var(--tertiary-color) transparent transparent transparent;
+  }
+
+  .select-selected.select-arrow-active:after {
+    border-color: transparent transparent var(--tertiary-color) transparent;
+    top: auto;
+  }
+
+  .select-items div,.select-selected {
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .select-items {
+    position: absolute;
+    background-color: var(--quinary-color);
+    color: var(--quaternary-color);
+    font-weight: bolder;
+    font-size: larger;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+
+  .select-hide {
+    display: none;
+  }
+
+  .select-items div:hover, .same-as-selected {
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    text-shadow: 1px 1px var(--quaternary-color);
+  }
+
+/* custom checkboxes
 .genreId {
     display: block;
     position: relative;
@@ -183,8 +254,9 @@ input[type="range"]::-webkit-slider-thumb {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-}
+} */
 
+/* media query for header */
 @media screen and (max-width: 575px) {
     #header-img img {
         height: 4rem;
