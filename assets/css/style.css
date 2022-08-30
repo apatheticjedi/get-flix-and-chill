@@ -95,6 +95,7 @@ button:active {
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--secondary-color);
+    text-shadow: 1px 1px var(--tertiary-color);
     font-family: 'Limelight', cursive;
     font-size: 1.5rem;
     z-index: 999;
@@ -138,6 +139,26 @@ i {
 #clear {
     display: none;
     padding-top: 10px;
+}
+
+#movie-name {
+    opacity: 0%;
+    color: var(--secondary-color);
+    text-shadow: 1px 1px var(--tertiary-color);
+    background-color: var(--quaternary-color);
+    height: 300px;
+    width: 200px;
+    padding-top: 45%;
+    border-radius: 5px;
+    z-index: 999;
+}
+
+#movie-name:hover {
+    opacity: 75%;
+}
+
+#movie-name:active {
+    opacity: 95%;
 }
 
 /* custom slider */
@@ -233,67 +254,6 @@ input[type="range"]::-webkit-slider-thumb {
     color: var(--tertiary-color);
     text-shadow: 2px 1px var(--quaternary-color);
 }
-
-/* custom checkboxes
-.genreId {
-    display: block;
-    position: relative;
-    padding: 0 0 10px 35px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.genreId input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: var(--quinary-color);
-}
-
-.genreId:hover input~.checkmark {
-    background-color: var(--quaternary-color);
-    opacity: 75%;
-}
-
-.genreId input:checked~.checkmark {
-    background-color: var(--primary-color);
-}
-
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-.genreId input:checked~.checkmark:after {
-    display: block;
-}
-
-.genreId .checkmark:after {
-    left: 9px;
-    top: 4px;
-    width: 7px;
-    height: 14px;
-    border: solid var(--tertiary-color);
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-} */
 
 /* media query for header */
 @media screen and (max-width: 575px) {

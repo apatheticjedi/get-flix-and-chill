@@ -1,4 +1,5 @@
 let strainEl = document.querySelector("#strain-name");
+let movieEl = document.querySelector('#movie-name')
 let strainNumber = Math.floor(Math.random() * 9);
 let randomStrain = '';
 let favorites = [];
@@ -15,6 +16,7 @@ const options = {
 var displayMovieResults = function () {
     let movieImgEl = document.querySelector('#movieImg');
     movieImgEl.setAttribute('src', `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movieObj.poster_path}`);
+    movieEl.innerHTML = movieObj.title
     weedApi();
 };
 
@@ -34,13 +36,14 @@ var weedApi = function () {
 // add to favorites
 var addFavorite = function () {
     favorites = favorites || [];
-    favorites.push([randomStrain + ' and ' + movieObj.title])
+    favorites.push([movieObj.title + ' and ' + randomStrain])
     localStorage.setItem('favorites', JSON.stringify(favorites));
     let favEl = document.querySelector('#favorites');
     let favAdd = document.createElement('p');
-    favAdd.textContent = randomStrain + ' and ' + movieObj.title;
+    favAdd.textContent = movieObj.title + ' and ' + randomStrain;
     favEl.appendChild(favAdd);
     $('#clear').css('display', 'block');
+    $('#favorites').css('display', 'block')
 };
 
 // display favorites on page load
@@ -73,6 +76,8 @@ $('#favBtn').click(function (e) {
 
 $('#clearFav').click(function () {
     localStorage.clear();
+    $('#favorites').css('display', 'none');
+    $('#clear').css('display', 'none');
 });
 
 displayMovieResults();
