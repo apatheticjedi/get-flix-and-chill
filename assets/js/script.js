@@ -1,29 +1,19 @@
 var genreId;
-var rating = 5; 
 var movie;
-var movieNameEl = document.querySelector("#movie-name");
-var movieImageEl = document.querySelector("#movie-image");
+var rating = 5;
 var randomPage = Math.floor(Math.random() * 50);
 const slider = document.getElementById("myRange");
 const output = document.getElementById("rating-choice");
 const apiKey = 'c7806b5cf84fe221af2805836d4a18d9';
 
-// const options = {
-//   method: 'GET',
-//   headers: {
-//     'X-RapidAPI-Key': '08a39320afmsh509774a913e5772p14518fjsn09fc77a7f220',
-//     'X-RapidAPI-Host': 'advanced-movie-search.p.rapidapi.com'
-//   }
-// };
-
 //sliderInput
 function sliderInput() {
-    slider.oninput = function () {
-      rating = this.value;
-      console.log(rating);
-    }
+  slider.oninput = function () {
+    rating = this.value;
   }
-//
+}
+
+// click button to get strain and movie results
 var buttonClick = function (e) {
   e.preventDefault();
   fetch(`https://api.themoviedb.org/3/discover/movie?api_key=c7806b5cf84fe221af2805836d4a18d9&with_genres=${genreId}&vote_average.gte=${rating}&page=1`)
@@ -33,9 +23,10 @@ var buttonClick = function (e) {
       movie = data.results[randomInd];
       localStorage.setItem('movie', JSON.stringify(movie));
 
-window.open('results.html', '_self');
+      // open results page and display results
+      window.open('results.html', '_self');
     })
-    .catch(err => console.error(err)); 
+    .catch(err => console.error(err));
 };
 
 
@@ -89,7 +80,8 @@ for (i = 0; i < l; i++) {
     closeAllSelect(this);
     this.nextSibling.classList.toggle("select-hide");
     this.classList.toggle("select-arrow-active");
-    console.log(e);
+
+    // convert genre input to genre id number
     if (e.target.innerHTML === "Comedy") {
       genreId = '35';
     } else if (e.target.innerHTML === "Horror") {
@@ -106,7 +98,6 @@ for (i = 0; i < l; i++) {
       genreId = '';
     }
   });
-  console.log(genreId);
 };
 
 function closeAllSelect(elmnt) {
@@ -132,7 +123,6 @@ function closeAllSelect(elmnt) {
 
 // if the user clicks anywhere outside the select box, then close all select boxes:
 document.addEventListener("click", closeAllSelect);
-
 
 //Modal functions
 $(document).ready(function () {
