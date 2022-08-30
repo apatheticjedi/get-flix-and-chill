@@ -25,13 +25,11 @@ var buttonClick = function (e) {
       let moviePoster = response.results[randomInd].poster_path;
       let movieTitle = response.results[randomInd].title;
 
-window.open('results.html', '_self'); 
       
       console.log(movie);
       console.log(moviePoster);
       console.log(movieTitle);
-      //same thing but append span with title
-      movieNameEl.textContent = movieTitle;
+    
     })
     .catch(err => console.error(err));
 };
