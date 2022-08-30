@@ -1,37 +1,41 @@
 var genreId;
-var rating; 
+var rating = 5; 
+var movie;
 var movieNameEl = document.querySelector("#movie-name");
 var movieImageEl = document.querySelector("#movie-image");
 var randomPage = Math.floor(Math.random() * 50);
 const slider = document.getElementById("myRange");
 const output = document.getElementById("rating-choice");
+const apiKey = 'c7806b5cf84fe221af2805836d4a18d9';
 
-const options = {
-  method: 'GET',
-  headers: {
-    'X-RapidAPI-Key': '08a39320afmsh509774a913e5772p14518fjsn09fc77a7f220',
-    'X-RapidAPI-Host': 'advanced-movie-search.p.rapidapi.com'
+// const options = {
+//   method: 'GET',
+//   headers: {
+//     'X-RapidAPI-Key': '08a39320afmsh509774a913e5772p14518fjsn09fc77a7f220',
+//     'X-RapidAPI-Host': 'advanced-movie-search.p.rapidapi.com'
+//   }
+// };
+
+//sliderInput
+function sliderInput() {
+    slider.oninput = function () {
+      rating = this.value;
+      console.log(rating);
+    }
   }
-};
-
+//
 var buttonClick = function (e) {
   e.preventDefault();
-
-  fetch(`https://advanced-movie-search.p.rapidapi.com/discover/movie?with_genres=${genreId}&vote_average.gte=${rating}&page=${randomPage}`, options)
+  fetch(`https://api.themoviedb.org/3/discover/movie?api_key=c7806b5cf84fe221af2805836d4a18d9&with_genres=${genreId}&vote_average.gte=${rating}&page=1`)
     .then(response => response.json())
-    .then(response => {
+    .then(data => {
       let randomInd = Math.floor(Math.random() * 19)
-      let movie = response.results[randomInd]
-      let moviePoster = response.results[randomInd].poster_path;
-      let movieTitle = response.results[randomInd].title;
+      movie = data.results[randomInd];
+      localStorage.setItem('movie', JSON.stringify(movie));
 
-      
-      console.log(movie);
-      console.log(moviePoster);
-      console.log(movieTitle);
-    
+window.open('results.html', '_self');
     })
-    .catch(err => console.error(err));
+    .catch(err => console.error(err)); 
 };
 
 
@@ -129,13 +133,7 @@ function closeAllSelect(elmnt) {
 // if the user clicks anywhere outside the select box, then close all select boxes:
 document.addEventListener("click", closeAllSelect);
 
-//sliderInput
-function sliderInput() {
-  slider.oninput = function () {
-    rating = this.value;
-    console.log(rating);
-  }
-}
+
 //Modal functions
 $(document).ready(function () {
   $("#exampleModal").modal('show');
@@ -150,3 +148,5 @@ $('#noBtn').click(function () {
 });
 
 $('#getMovie').click(buttonClick);
+
+slider.addEventListener('mouseup', sliderInput());
