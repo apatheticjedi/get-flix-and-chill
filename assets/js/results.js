@@ -1,4 +1,4 @@
-let strainEl = document.querySelector(".strain-name")
+let strainEl = document.querySelector("#strain-name")
 let movieEl = document.querySelector("#result-movie")
 let strainNumber = Math.floor(Math.random() * 9);
 let randomStrain = '';

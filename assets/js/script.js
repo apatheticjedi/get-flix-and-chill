@@ -1,57 +1,39 @@
-
-
+var genreId;
+var movieNameEl = document.querySelector("#movie-name");
+var movieImageEl = document.querySelector("#movie-image");
+var randomPage = Math.floor(Math.random() * 50)
+const slider = document.getElementById("myRange");
+const output = document.getElementById("rating-choice");
 const options = {
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key': '4da9750526msh5e9df71beb541e3p19a53ajsn43bfbaa5b30f',
+    'X-RapidAPI-Key': '08a39320afmsh509774a913e5772p14518fjsn09fc77a7f220',
     'X-RapidAPI-Host': 'advanced-movie-search.p.rapidapi.com'
   }
 };
 
-fetch('https://advanced-movie-search.p.rapidapi.com/discover/movie?with_genres=80&page=1', options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
+var buttonClick = function (e) {
+  e.preventDefault();
 
-let movies = []
-let genres = {}
+  fetch(`https://advanced-movie-search.p.rapidapi.com/discover/movie?with_genres=${genreId}&page=${randomPage}`, options)
+    .then(response => response.json())
+    .then(response => {
+      let randomInd = Math.floor(Math.random() * 19)
+      let movie = response.results[randomInd]
+      let moviePoster = response.results[randomInd].poster_path;
+      let movieTitle = response.results[randomInd].title;
 
-buttonClick = () => {
-  $('.genreId').change(function (event) {
-    if ($(event.target).is(':checked')) {
-      movies.push($(event.target).attr('id'))
-      console.log(movies)
-    } else {
-      movies = movies.filter(item => item !== $(event.target).attr('id'))
-      console.log(movies)
-    };
-
-
-  });
+window.open('results.html', '_self'); 
+      
+      console.log(movie);
+      console.log(moviePoster);
+      console.log(movieTitle);
+      //same thing but append span with title
+      movieNameEl.textContent = movieTitle;
+    })
+    .catch(err => console.error(err));
 };
 
-let movieChoice = () => {
-  if (movies[0] === 'comedy') {
-    genres.push('35')
-    console.log(genres)
-
-  } else if (movieChoice === horror) {
-    genres.push('36')
-    console.log(genres)
-
-  } else if (movieChoice === action) {
-    genres.push('28')
-
-  } else if (movieChoice === drama) {
-    genres.push('18')
-
-  } else {
-    genres.push('99')
-  };
-}
-
-const slider = document.getElementById("myRange");
-const output = document.getElementById("rating-choice");
 
 sliderInput = () => {
   slider.oninput = function () {
@@ -110,8 +92,26 @@ for (i = 0; i < l; i++) {
     closeAllSelect(this);
     this.nextSibling.classList.toggle("select-hide");
     this.classList.toggle("select-arrow-active");
+    console.log(e);
+    if (e.target.innerHTML === "Comedy") {
+      genreId = '35';
+    } else if (e.target.innerHTML === "Horror") {
+      genreId = '27';
+    } else if (e.target.innerHTML === "Action") {
+      genreId = '28';
+    } else if (e.target.innerHTML === "Drama / Romance") {
+      genreId = '18,10749';
+    } else if (e.target.innerHTML === "Sci-Fi / Fantasy") {
+      genreId = '878,14';
+    } else if (e.target.innerHTML === "Documentary") {
+      genreId = '99';
+    } else {
+      genreId = '';
+    }
   });
-}
+  console.log(genreId);
+};
+
 function closeAllSelect(elmnt) {
   //  function that will close all select boxes in the document, except the current select box:
   var x, y, i, xl, yl, arrNo = [];
@@ -131,7 +131,7 @@ function closeAllSelect(elmnt) {
       x[i].classList.add("select-hide");
     }
   }
-}
+};
 // if the user clicks anywhere outside the select box, then close all select boxes:
 document.addEventListener("click", closeAllSelect);
 
@@ -147,6 +147,6 @@ $('#yesBtn').click(function () {
 
 $('#noBtn').click(function () {
   window.open('https://www.disney.com/', "_self");
-})
+});
 
-buttonClick();
+$('#getMovie').click(buttonClick);
