@@ -1,64 +1,48 @@
 
-
-const options = {
-  method: 'GET',
-  headers: {
-    'X-RapidAPI-Key': '4da9750526msh5e9df71beb541e3p19a53ajsn43bfbaa5b30f',
-    'X-RapidAPI-Host': 'advanced-movie-search.p.rapidapi.com'
-  }
-};
-
-fetch('https://advanced-movie-search.p.rapidapi.com/discover/movie?with_genres=80&page=1', options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
-
-let movies = []
-let genres = {}
-
-buttonClick = () => {
-  $('.genreId').change(function (event) {
-    if ($(event.target).is(':checked')) {
-      movies.push($(event.target).attr('id'))
-      console.log(movies)
-    } else {
-      movies = movies.filter(item => item !== $(event.target).attr('id'))
-      console.log(movies)
-    };
-
-
-  });
-};
-
-let movieChoice = () => {
-  if (movies[0] === 'comedy') {
-    genres.push('35')
-    console.log(genres)
-
-  } else if (movieChoice === horror) {
-    genres.push('36')
-    console.log(genres)
-
-  } else if (movieChoice === action) {
-    genres.push('28')
-
-  } else if (movieChoice === drama) {
-    genres.push('18')
-
-  } else {
-    genres.push('99')
-  };
-}
-
+const genreSelect = document.querySelector('#genre-select');
 const slider = document.getElementById("myRange");
 const output = document.getElementById("rating-choice");
 
-sliderInput = () => {
-  slider.oninput = function () {
-    let output = this.value;
-    console.log(output);
-  }
+
+const getMovie = function (genreID, rating) {
+  const selectPage = Math.floor(Math.random() * (50));
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': '33eee97110msh1be2865e316c1ebp135d28jsn8f4bc7796a63',
+      'X-RapidAPI-Host': 'advanced-movie-search.p.rapidapi.com'
+    }
+  };
+  //pass in genreID and randomly select a page of the movies to choose from
+  const API = `https://advanced-movie-search.p.rapidapi.com/discover/movie?with_genres=${genreID}&vote_average.gte=${rating}&page=${selectPage}`
+
+  fetch(API, options)
+    .then(response => response.json())
+    .then(function (data) {
+      //create random movie index 
+      const randomMovie = Math.floor(Math.random() * data.results.length)
+      console.log(data.results[randomMovie]);
+    })
+    .catch(err => console.error(err))
 }
+
+//assign the genreID based on the drop down selection
+let genreID;
+function assignID() {
+  if (genreSelect.value === "comedy") {
+    genreID = 35;
+  } else if (genreSelect.value === "horror") {
+    genreID = 36;
+  } else if (genreSelect.value === "action") {
+    genreID = 28;
+  } else if (genreSelect.value === "drama") {
+    genreID = 18;
+  } else if (genreSelect.value === "scifi") {
+    genreID = 10770;
+  } else if (genreSelect.value === "documentary") {
+    genreID = 99;
+  }
+};
 
 // function for custom drop-down menu
 var x, i, j, l, ll, selElmnt, a, b, c;
@@ -131,11 +115,19 @@ function closeAllSelect(elmnt) {
       x[i].classList.add("select-hide");
     }
   }
+  assignID();
 }
 // if the user clicks anywhere outside the select box, then close all select boxes:
 document.addEventListener("click", closeAllSelect);
 
-
+//sliderInput
+let rating; 
+function sliderInput() {
+  slider.oninput = function () {
+    rating = this.value;
+    console.log(rating);
+  }
+}
 //Modal functions
 $(document).ready(function () {
   $("#exampleModal").modal('show');
@@ -148,5 +140,13 @@ $('#yesBtn').click(function () {
 $('#noBtn').click(function () {
   window.open('https://www.disney.com/', "_self");
 })
+
+let movies = []
+let genres = {}
+
+var buttonClick = function() {
+  e.preventDefault();
+  
+}
 
 buttonClick();
