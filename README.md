@@ -11,7 +11,7 @@ The purpose of this app is to create a page that will pair a randomized movie wi
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Languages Used
+## Built With
 
 * HTML
 * CSS
