@@ -34,13 +34,8 @@ var buttonClick = function (e) {
       localStorage.setItem('movie', JSON.stringify(movie));
 
 window.open('results.html', '_self');
-      
-      console.log(movie);
-      //same thing but append span with title
     })
-    .catch(err => console.error(err));
-
-    
+    .catch(err => console.error(err)); 
 };
 
 
