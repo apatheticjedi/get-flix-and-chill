@@ -3,9 +3,13 @@ let movieEl = document.querySelector("#result-movie")
 let strainNumber = Math.floor(Math.random() * 9);
 let randomStrain = '';
 let favorites = [];
+let movieObj = JSON.parse(localStorage.getItem('movie'));
 
-  var displayMovieResults = function (randomMovie) { 
-    movieEl.innerHTML += `<img src="https://image.tmdb.org/t/p/original/${data.results[randomMovie].poster_path}.jpg">`;
+
+  var displayMovieResults = function () { 
+    let movieImgEl = document.querySelector('#movieImg');
+    movieImgEl.setAttribute('src', `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movieObj.poster_path}`);
+    weedApi();
   }  
 
 var weedApi = function() {
@@ -30,13 +34,16 @@ var weedApi = function() {
         });
 };
 
-weedApi();
+
 
 var addFavorite = function() {
     favorites = favorites || [];
-    favorites.push([randomStrain + ' and '])
+    favorites.push([randomStrain + ' and ' + movieObj.title])
     localStorage.setItem('favorites', JSON.stringify(favorites));
-    console.log('button');
+    let favEl = document.querySelector('#favorites');
+    let favAdd = document.createElement('p');
+    favAdd.textContent = randomStrain + ' and ' + movieObj.title;
+    favEl.appendChild(favAdd);
 };
 
 var loadFavorites = function() {
@@ -55,7 +62,6 @@ var loadFavorites = function() {
         let favH2 = document.querySelector('#favoritesH2');
         favH2.textContent = 'No Favorites Yet!';
     };
-    console.log('hey')
 };
 
 $('#goBack').click(function () {
@@ -70,5 +76,6 @@ $('#favBtn').click(function (e) {
 $('#clearFav').click(function() {
     localStorage.clear();
 });
-
+displayMovieResults();
 loadFavorites();
+console.log(movieObj);
