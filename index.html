@@ -40,12 +40,12 @@
 
                     <select name="genre-select" id="genre-select">
                         <option value="">--Please choose an option--</option>
-                        <option value="comedy">Comedy</option>
-                        <option value="horror">Horror</option>
-                        <option value="action">Action</option>
-                        <option value="drama">Drama / Romance</option>
-                        <option value="scifi">Sci-Fi / Fantasy</option>
-                        <option value="documentary">Documentary</option>
+                        <option value="comedy" data-id="35">Comedy</option>
+                        <option value="horror" data-id="27">Horror</option>
+                        <option value="action" data-id="28">Action</option>
+                        <option value="drama" data-id="18,10749">Drama / Romance</option>
+                        <option value="scifi" data-id="878,14">Sci-Fi / Fantasy</option>
+                        <option value="documentary" data-id="99">Documentary</option>
                     </select>
                 </div>
 
@@ -97,7 +97,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn-rounded d-flex justify-content-center">Get My Movie & Strain</button>
+            <button type="submit" id="getMovie" class="btn-rounded d-flex justify-content-center">Get My Movie & Strain</button>
 
         </form>
 
@@ -107,15 +107,16 @@
                 <div class="modal-content row">
                     <div class="modal-header col-12">
                         <h3>Please confirm that you are 21 years of age or older.</h3>
-                    </div>  
+                    </div>
                     <div class="col-12 d-flex justify-content-between">
-                        <button id="yesBtn" class="btn-rounded b col-5" type="button" data-dismiss="modal" aria-label="close">Yes</button>
+                        <button id="yesBtn" class="btn-rounded b col-5" type="button" data-dismiss="modal"
+                            aria-label="close">Yes</button>
                         <button id="noBtn" class="btn-rounded btn-outline col-5" type="button">No</button>
-                    </div>                      
+                    </div>
                 </div>
             </div>
         </div>
-        
+
     </main>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"

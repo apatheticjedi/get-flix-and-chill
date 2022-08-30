@@ -1,12 +1,11 @@
-let strainEl = document.querySelector(".strain-name")
+let strainEl = document.querySelector("#strain-name")
 let movieEl = document.querySelector("#result-movie")
 let strainNumber = Math.floor(Math.random() * 9);
 let randomStrain = '';
 let favorites = [];
 
-
-  var displayMovieResults = function (data) { 
-    movieEl.innerHTML += `<img src="https://image.tmdb.org/t/p/original/${data[i].poster_path}.jpg">`;
+  var displayMovieResults = function (randomMovie) { 
+    movieEl.innerHTML += `<img src="https://image.tmdb.org/t/p/original/${data.results[randomMovie].poster_path}.jpg">`;
   }  
 
 var weedApi = function() {
@@ -24,7 +23,7 @@ var weedApi = function() {
                 response.json().then(function(data) {
                     randomStrain = data.data[strainNumber].name;
                     strainEl.textContent = `${data.data[strainNumber].name}`;
-                    // strainEl.style.color = '#EFF1F3'
+                    strainEl.style.color = '#EFF1F3'
                     console.log(data);
                 });
             };
