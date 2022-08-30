@@ -1,42 +1,38 @@
-let strainEl = document.querySelector("#strain-name")
-let movieEl = document.querySelector("#result-movie")
+let strainEl = document.querySelector("#strain-name");
 let strainNumber = Math.floor(Math.random() * 9);
 let randomStrain = '';
 let favorites = [];
 let movieObj = JSON.parse(localStorage.getItem('movie'));
+const options = {
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': '09fb503d34msh561206120c26ebcp10c139jsn18b1b84efe43',
+        'X-RapidAPI-Host': 'brianiswu-otreeba-open-cannabis-v1.p.rapidapi.com'
+    }
+};
 
-
-  var displayMovieResults = function () { 
+// display movie poster
+var displayMovieResults = function () {
     let movieImgEl = document.querySelector('#movieImg');
     movieImgEl.setAttribute('src', `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movieObj.poster_path}`);
     weedApi();
-  }  
+};
 
-var weedApi = function() {
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '09fb503d34msh561206120c26ebcp10c139jsn18b1b84efe43',
-            'X-RapidAPI-Host': 'brianiswu-otreeba-open-cannabis-v1.p.rapidapi.com'
-        }
-    };
-    
+// get random cannabis strain
+var weedApi = function () {
     fetch('https://brianiswu-otreeba-open-cannabis-v1.p.rapidapi.com/strains', options)
-        .then(function(response) {
-            if(response.ok) {
-                response.json().then(function(data) {
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (data) {
                     randomStrain = data.data[strainNumber].name;
                     strainEl.textContent = `${data.data[strainNumber].name}`;
-                    strainEl.style.color = '#EFF1F3'
-                    console.log(data);
                 });
             };
         });
 };
 
-
-
-var addFavorite = function() {
+// add to favorites
+var addFavorite = function () {
     favorites = favorites || [];
     favorites.push([randomStrain + ' and ' + movieObj.title])
     localStorage.setItem('favorites', JSON.stringify(favorites));
@@ -44,9 +40,11 @@ var addFavorite = function() {
     let favAdd = document.createElement('p');
     favAdd.textContent = randomStrain + ' and ' + movieObj.title;
     favEl.appendChild(favAdd);
+    $('#clear').css('display', 'block');
 };
 
-var loadFavorites = function() {
+// display favorites on page load
+var loadFavorites = function () {
     favorites = JSON.parse(localStorage.getItem('favorites'));
     if (favorites) {
         let favH2 = document.querySelector('#favoritesH2');
@@ -56,7 +54,7 @@ var loadFavorites = function() {
             let favAdd = document.createElement('p');
             favAdd.textContent = favorites[i];
             favEl.appendChild(favAdd);
-            $('#clear').css('display', 'block')
+            $('#clear').css('display', 'block');
         }
     } else {
         let favH2 = document.querySelector('#favoritesH2');
@@ -68,14 +66,14 @@ $('#goBack').click(function () {
     window.open('index.html', '_self')
 });
 
-$('#favBtn').click(function (e) { 
+$('#favBtn').click(function (e) {
     e.preventDefault();
     addFavorite();
 });
 
-$('#clearFav').click(function() {
+$('#clearFav').click(function () {
     localStorage.clear();
 });
+
 displayMovieResults();
 loadFavorites();
-console.log(movieObj);
