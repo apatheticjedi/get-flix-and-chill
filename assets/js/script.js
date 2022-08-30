@@ -1,9 +1,11 @@
 var genreId;
+var rating; 
 var movieNameEl = document.querySelector("#movie-name");
 var movieImageEl = document.querySelector("#movie-image");
-var randomPage = Math.floor(Math.random() * 50)
+var randomPage = Math.floor(Math.random() * 50);
 const slider = document.getElementById("myRange");
 const output = document.getElementById("rating-choice");
+
 const options = {
   method: 'GET',
   headers: {
@@ -15,7 +17,7 @@ const options = {
 var buttonClick = function (e) {
   e.preventDefault();
 
-  fetch(`https://advanced-movie-search.p.rapidapi.com/discover/movie?with_genres=${genreId}&page=${randomPage}`, options)
+  fetch(`https://advanced-movie-search.p.rapidapi.com/discover/movie?with_genres=${genreId}&vote_average.gte=${rating}&page=${randomPage}`, options)
     .then(response => response.json())
     .then(response => {
       let randomInd = Math.floor(Math.random() * 19)
@@ -34,13 +36,6 @@ window.open('results.html', '_self');
     .catch(err => console.error(err));
 };
 
-
-sliderInput = () => {
-  slider.oninput = function () {
-    let output = this.value;
-    console.log(output);
-  }
-}
 
 // function for custom drop-down menu
 var x, i, j, l, ll, selElmnt, a, b, c;
@@ -132,10 +127,17 @@ function closeAllSelect(elmnt) {
     }
   }
 };
+
 // if the user clicks anywhere outside the select box, then close all select boxes:
 document.addEventListener("click", closeAllSelect);
 
-
+//sliderInput
+function sliderInput() {
+  slider.oninput = function () {
+    rating = this.value;
+    console.log(rating);
+  }
+}
 //Modal functions
 $(document).ready(function () {
   $("#exampleModal").modal('show');
