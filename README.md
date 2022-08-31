@@ -18,6 +18,8 @@ The purpose of this app is to create a page that will pair a randomized movie wi
 * JavaScript
 * jQuery
 * MD Bootstrap
+* Google Fonts
+* FontAwesome
 
 ## Contributors 
 
@@ -33,7 +35,6 @@ The purpose of this app is to create a page that will pair a randomized movie wi
 * Rapid API
 * TMDB: The Movie Database
 * Otreeba Open Cannabis API
-* FontAwesome
 
 ## Website URL
 https://apatheticjedi.github.io/get-flix-and-chill/

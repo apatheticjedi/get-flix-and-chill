@@ -148,9 +148,10 @@ i {
     background-color: var(--quaternary-color);
     height: 300px;
     width: 200px;
-    padding-top: 45%;
+    padding-top: 33%;
     border-radius: 5px;
     z-index: 999;
+    overflow: auto;
 }
 
 #movie-name:hover {

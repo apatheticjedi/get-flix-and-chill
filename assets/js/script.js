@@ -159,18 +159,9 @@ $(document).ready(function () {
   $("#exampleModal").modal('show');
 });
 
-$('#yesBtn').click(function () {
-  $('#exampleModal').modal('hide');
-});
-
 $('#noBtn').click(function () {
   window.open('https://www.disney.com/', "_self");
 });
-
-// error modal
-// $('#errorBtn').click(function () {
-//   window.open('index.html', '_self');
-// });
 
 $('#getMovie').click(buttonClick);
 
