@@ -31,7 +31,7 @@ The purpose of this app is to create a page that will pair a randomized movie wi
 ## Acknowledgements 
 
 * Rapid API
-* Advance Movie Search API
+* TMDB: The Movie Database
 * Otreeba Open Cannabis API
 * FontAwesome
 

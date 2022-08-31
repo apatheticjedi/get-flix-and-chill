@@ -16,7 +16,7 @@ function sliderInput() {
 // click button to get strain and movie results
 var buttonClick = function (e) {
   e.preventDefault();
-  fetch(`https://api.themoviedb.org/3/discover/movie?api_key=c7806b5cf84fe221af2805836d4a18d9&with_genres=${genreId}&vote_average.gte=${rating}&page=1`)
+  fetch(`https://api.themoviedb.org/3/discover/movie?api_key=c7806b5cf84fe221af2805836d4a18d9&with_genres=${genreId}&vote_average.gte=${rating}&page=${randomPage}`)
     .then(response => response.json())
     .then(data => {
       let randomInd = Math.floor(Math.random() * 19)
