@@ -88,12 +88,38 @@ for (i = 0; i < l; i++) {
       genreId = '27';
     } else if (e.target.innerHTML === "Action") {
       genreId = '28';
-    } else if (e.target.innerHTML === "Drama / Romance") {
-      genreId = '18,10749';
-    } else if (e.target.innerHTML === "Sci-Fi / Fantasy") {
-      genreId = '878,14';
+    } else if (e.target.innerHTML === "Adventure") {
+      genreId = '12';
+    }  else if (e.target.innerHTML === "Drama") {
+      genreId = '18';
+    } else if (e.target.innerHTML === "Romance") {
+      genreId = '10749';
+    } else if (e.target.innerHTML === "Sci-Fi") {
+      genreId = '878';
+    } else if (e.target.innerHTML === "Fantasy") {
+      genreId = '14';
+    } else if (e.target.innerHTML === "Family") {
+      genreId = '10751';
+    } else if (e.target.innerHTML === "Animation") {
+      genreId = '16';
+    } else if (e.target.innerHTML === "Music") {
+      genreId = '10402';
+    } else if (e.target.innerHTML === "Crime") {
+      genreId = '80';
+    } else if (e.target.innerHTML === "Thriller") {
+      genreId = '53';
+    } else if (e.target.innerHTML === "Mystery") {
+      genreId = '9648';
+    } else if (e.target.innerHTML === "History") {
+      genreId = '36';
     } else if (e.target.innerHTML === "Documentary") {
       genreId = '99';
+    } else if (e.target.innerHTML === "War") {
+      genreId = '10752';
+    } else if (e.target.innerHTML === "Western") {
+      genreId = '37';
+    } else if (e.target.innerHTML === "TV Movie") {
+      genreId = '10770';
     } else {
       genreId = '';
     }
