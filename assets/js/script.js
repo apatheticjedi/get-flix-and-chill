@@ -1,7 +1,7 @@
 var genreId;
 var movie;
 var rating = 5;
-var randomPage = Math.floor(Math.random() * 50);
+var randomPage = Math.floor(Math.random() * 30) + 1;
 const slider = document.getElementById("myRange");
 const output = document.getElementById("rating-choice");
 const apiKey = 'c7806b5cf84fe221af2805836d4a18d9';
@@ -21,10 +21,14 @@ var buttonClick = function (e) {
     .then(data => {
       let randomInd = Math.floor(Math.random() * 19)
       movie = data.results[randomInd];
-      localStorage.setItem('movie', JSON.stringify(movie));
+      if (!movie) {
+        $("#errorModal").modal('show');
+      } else {
+        localStorage.setItem('movie', JSON.stringify(movie));
 
-      // open results page and display results
-      window.open('results.html', '_self');
+        // open results page and display results
+        window.open('results.html', '_self');
+      }
     })
     .catch(err => console.error(err));
 };
@@ -90,7 +94,7 @@ for (i = 0; i < l; i++) {
       genreId = '28';
     } else if (e.target.innerHTML === "Adventure") {
       genreId = '12';
-    }  else if (e.target.innerHTML === "Drama") {
+    } else if (e.target.innerHTML === "Drama") {
       genreId = '18';
     } else if (e.target.innerHTML === "Romance") {
       genreId = '10749';
@@ -162,6 +166,11 @@ $('#yesBtn').click(function () {
 $('#noBtn').click(function () {
   window.open('https://www.disney.com/', "_self");
 });
+
+// error modal
+// $('#errorBtn').click(function () {
+//   window.open('index.html', '_self');
+// });
 
 $('#getMovie').click(buttonClick);
 

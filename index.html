@@ -89,9 +89,23 @@
                         <h3>Please confirm that you are 21 years of age or older.</h3>
                     </div>
                     <div class="col-12 d-flex justify-content-between">
-                        <button id="yesBtn" class="btn-rounded b col-5" type="button" data-dismiss="modal"
+                        <button id="yesBtn" class="btn-rounded col-5" type="button" data-dismiss="modal"
                             aria-label="close" data-mdb-dismiss="modal">Yes</button>
                         <button id="noBtn" class="btn-rounded btn-outline col-5" type="button">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content row">
+                    <div class="modal-header col-12">
+                        <h3>No movies matched your selection. Please try again!</h3>
+                    </div>
+                    <div class="col-12 d-flex justify-content-between">
+                        <button id="errorBtn" class="btn-rounded col-8" type="button" data-dismiss="modal"
+                            aria-label="close" data-mdb-dismiss="modal">Try Again!</button>
                     </div>
                 </div>
             </div>
